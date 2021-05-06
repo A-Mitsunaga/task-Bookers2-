@@ -1,0 +1,30 @@
+<!--booksの画面-->
+<h1>User info</h1>
+
+
+<h1>New Book</h1>
+<%= form_with model: @book, local:true do |f| %>
+
+  <h4>Title</h4>
+  <%= f.text_field :book_name %>
+  <h4>Opinion</h4>
+  <%= f.text_area :caption %>
+  <%= f.submit 'Create Book' %>
+
+<% end %>
+
+
+
+
+
+
+<h1>Books</h1>
+<% @books.each do |book| %>
+<div>
+  <%= link_to book_path(book.id) do %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
+
+  <p>ユーザーネーム：<%= book.user.name %></p>
+</div>
+<% end %>
